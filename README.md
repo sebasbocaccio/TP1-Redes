@@ -1,4 +1,4 @@
-## Instrucciones para general las muestras:
+## Instrucciones para generar las muestras:
 * Correr como sudo generarMuestras.py
 Esto genera un archivo llamado capturas.cvs
 
