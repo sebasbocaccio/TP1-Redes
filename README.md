@@ -1,2 +1,3 @@
+## Instrucciones para general las muestras:
 
-ale 
+
