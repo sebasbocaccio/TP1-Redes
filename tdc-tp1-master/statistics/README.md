@@ -1,1 +1,0 @@
-Capturas tomadas con Wireshark.
