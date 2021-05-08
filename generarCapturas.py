@@ -34,7 +34,7 @@ def callback(pkt):
         data[datetime.now()] = S2.values()
 
 
-sniff(prn=callback, count=100)
+sniff(prn=callback, count=10000)
 
 mostrar_fuente(S1)
 
