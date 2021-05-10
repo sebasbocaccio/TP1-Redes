@@ -20,7 +20,7 @@ def mostrar_fuente(S):
 def callback(pkt):
     if pkt.haslayer(Ether):
         dire = "BROADCAST" if pkt[Ether].dst=="ff:ff:ff:ff:ff:ff" else "UNICAST"
-        
+        print(pkt[Ether].type)
         #s_i = (dire, proto) # Aca se define el simbolo de la fuente
         # s_i = dire 
 
