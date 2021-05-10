@@ -1,6 +1,6 @@
 ## Instrucciones para generar las muestras:
 * Correr como sudo generarMuestras.py
-Esto genera un archivo llamado capturas.cvs
+Esto genera un archivo llamado capturasS2.cvs
 
 ## Instrucciones para ver y correr los graficos:
 * En un jupyter notebook abrir el archivo exp-2.ipynb
@@ -8,5 +8,6 @@ Esto genera un archivo llamado capturas.cvs
 * Las imagenes de los graficos quedan guardadas en la carpeta **plots**
 
 ### Nodos distinguidos
-* Correr con `python nodosDistinguidos.py`
-* ...
+* Correr como sudo generarCapturasARP.py
+* Esto genera un archivo llamado capturasS2.cvs
+* dentro del exp-2.ipynb buscar las funciones que se necesiten
