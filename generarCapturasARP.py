@@ -9,6 +9,8 @@ Created on Mon May 10 11:26:31 2021
 #!/usr/bin/env python3
 from scapy.all import *
 from scapy.layers.l2 import Ether
+import scapy.all as scapy
+import pickle
 import numpy as np
 import pandas as pd
 import os
@@ -28,22 +30,22 @@ def mostrar_fuente(S):
     print("H(S): %.5f" %  H )
 
 def callback(pkt):
-    if pkt.haslayer(Ether):
-        if pkt[Ether].type == arp:
-            global cantMuestras 
-            cantMuestras = cantMuestras + 1 
-            print(cantMuestras)
-            s_i = pkt[Ether].src
-            if s_i not in S1:
-                S1[s_i] = 0.0
-    
-            S1[s_i] += 1.0
-            S2 = S1.copy()
-            data[datetime.now()] = S2.values()
+    if pkt.haslayer(scapy.ARP):
+        global cantMuestras 
+        arp = pkt[scapy.ARP]
+        cantMuestras = cantMuestras + 1 
+        print(cantMuestras)
+        s_i = arp.psrc
+        if s_i not in S1:
+            S1[s_i] = 0.0
+
+        S1[s_i] += 1.0
+        S2 = S1.copy()
+        data[datetime.now()] = S2.values()
 
 while cantMuestras < 100:
     
-    sniff(prn=callback, count=1000)
+    sniff(prn=callback, count=100)
 
 mostrar_fuente(S1)
 
