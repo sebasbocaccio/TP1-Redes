@@ -35,7 +35,7 @@ def callback(pkt):
         arp = pkt[scapy.ARP]
         cantMuestras = cantMuestras + 1 
         print(cantMuestras)
-        s_i =  "src: " + arp.psrc + " dst: " + " ("+str(arp.pdst)+")"
+        s_i = arp.psrc + " ("+str(arp.pdst)+")"
     
         if s_i not in S1:
             S1[s_i] = 0.0
@@ -44,7 +44,7 @@ def callback(pkt):
         S2 = S1.copy()
         data[datetime.now()] = S2.values()
 
-while cantMuestras < 1000:
+while cantMuestras < 100:
     
     sniff(prn=callback, count=100)
 
